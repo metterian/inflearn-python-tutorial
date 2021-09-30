@@ -49,8 +49,5 @@ class Car():
         return f'str : {self._company} - {self._details}'
 
 
-
-
 car1 = Car("Ferrari", {'color': 'white', 'horsepower': 400, 'price': 800})
 
-print(dir(car1))
