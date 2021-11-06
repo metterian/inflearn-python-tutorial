@@ -1,3 +1,10 @@
+---
+layout: post
+title:  "🐍[Python] 매직메소드 - 2 (namedTuple)"
+author: "metterian"
+tags: Python
+---
+
 
 
 ## 들어가며
@@ -7,6 +14,8 @@ Python의 네임드 튜플 (Named Tuple)은 ML/DL등에서 학습을 위한 데�
 지난 포스팅에서 `객체` 란 파이썬의 데이터를 추상화 한것이라고 설명 했었습니다. 이를 활용하여 모든 객체는 `id` 통해 확인 할 수 있고 value는 `type` 으로 객체 값을 확인 할 수 있습니다. 
 
 
+
+## 기존 방법론
 
 ### 일반적인 튜플
 
@@ -29,6 +38,8 @@ l_leng1 = sqrt(l_leng1)
 ```
 
 
+
+## 네임드 튜플 (Namedtuple)
 
 ### 네임드 튜플 사용해보기
 
