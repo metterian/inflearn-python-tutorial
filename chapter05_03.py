@@ -92,19 +92,5 @@ def outer():
     def inner():
         # inner 함수 입장에서 지역(local) 범위
         pass
+    pass
 
-
-global_var = "전역 변수"
-
-def outer():
-    nonlocal_var = "비전역 변수"
-    print(global_var) # 가능
-    print(nonlocal_var) # 가능
-
-    def inner():
-        local_var = "지역 변수"
-        print(global_var) # 가능
-        print(nonlocal_var) # 가능
-        print(local_var) # 가능
-    inner()
-outer()
