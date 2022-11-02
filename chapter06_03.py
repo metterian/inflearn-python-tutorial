@@ -8,7 +8,7 @@
 # 코루틴: 루틴 실행중 중지 -> 동시성 프로그래밍에 적합
 # 코루틴: 스레드에 비해 오버헤드 감소
 # 스레드: 싱글스레드 -> 멀티스레드 -> 복잡, 공유되는 자원 -> 자원소모,  -> 컨텍스트 스위칭 비용 발생
-
+# def -> async, yield -> await 으로 변경해서 사용가능
 
 
 # 코루틴 예제1
@@ -27,7 +27,7 @@ def coroutine1():
 # 메인 루틴 = 서브 루틴
 cr1 = coroutine1()
 
-print(cr1, type(cr1))
+# print(cr1, type(cr1))
 
 # yield 지점까지 서브루틴 수행
 # next(cr1) # next를 호출하면 제너레이터가 실행됨
@@ -66,16 +66,40 @@ from inspect import getgeneratorstate # 제너레이터의 상태를 확인하�
 
 # print(getgeneratorstate(cr3))
 
-print(next(cr3))
+# print(next(cr3))
 
 
 # print(getgeneratorstate(cr3))
 # cr3.send(100) # 전달 받은 값을 출력
-print(cr3.send(100)) # 전달 받아서 값을 계산한 후 출력
+# print(cr3.send(100)) # 전달 받아서 값을 계산한 후 출력
 
 # print(getgeneratorstate(cr3))
 # cr3.send(200)
 
 
+# 코루틴 예제3 (더블 어웨이터)
+# StopIteration 자동 처리(3.5 -> await)
+# 중첩 코루틴 처리
+
+def generator1():
+    for x in 'AB':
+        yield x
+    for y in range(1, 4):
+        yield y
 
 
+t1 = generator1()
+print(next(t1))
+print(next(t1))
+print(next(t1))
+print(next(t1))
+print(next(t1))
+# 이렇게 하면 다 호출 됨
+
+t2 = generator1()
+print(list(t2))
+
+# 위의 예제를 다음과 같이 사용할 수 있음
+def generator2():
+    yield from 'AB'
+    yield from range(1, 4)
